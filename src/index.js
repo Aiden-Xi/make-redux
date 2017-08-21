@@ -76,7 +76,8 @@ import './index.css'
 
 
 // 监听者模式 - 自动刷新数据变化之后的页面
-function createStore(state, stateChanger) {
+function createStore(reducer) {
+    let state = null
     const listeners = []
     const subscribe = (listener) => listeners.push(listener)
     const getState = () => state
@@ -123,5 +124,6 @@ class Index extends Component {
 }
 
 ReactDOM.render(
-    <Index/>, document.getElementById('root')
+    <Index />,
+    document.getElementById('root')
 )
